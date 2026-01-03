@@ -145,7 +145,7 @@ int index_main(int argc, char **argv, char *full_cmd) {
     char input_dir_with_glob[4096];
     snprintf(input_dir_with_glob, 4096, "%s/%s", input_dir_only, glob_basename);
 
-    chdir(parent_dirname);
+    if(chdir(parent_dirname)) {};
     struct giggle_index *gi;
 
     if (s_is_set == 1) {

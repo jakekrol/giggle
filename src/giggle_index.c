@@ -424,7 +424,7 @@ void *giggle_collect_intersection_data_in_block(
     uint32_t j;
 #if GIGGLE_QUERY_TRACE
     for (j = 0; j < leaf_start_data->num_leading; ++j)
-        fprintf(stderr, "leading\t%llu\n", leaf_start_data->leading[j]);
+        fprintf(stderr, "leading\t%lu\n", leaf_start_data->leading[j]);
 #endif
 
     memcpy(
@@ -437,7 +437,7 @@ void *giggle_collect_intersection_data_in_block(
 #if GIGGLE_QUERY_TRACE
     for (j = 0; j < leaf_data_starts_end(leaf_start_data, leaf_start, pos_start_id);
          ++j)
-        fprintf(stderr, "starts\t%llu\n", leaf_start_data->starts[j]);
+        fprintf(stderr, "starts\t%lu\n", leaf_start_data->starts[j]);
 #endif
 
     memcpy(
@@ -449,7 +449,7 @@ void *giggle_collect_intersection_data_in_block(
 
 #if GIGGLE_QUERY_TRACE
     for (j = 0; j < leaf_data_ends_end(leaf_start_data, leaf_start, pos_start_id); ++j)
-        fprintf(stderr, "ends\t%llu\n", leaf_start_data->ends[j]);
+        fprintf(stderr, "ends\t%lu\n", leaf_start_data->ends[j]);
 #endif
 
     qsort(buff, buff_size, sizeof(uint64_t), uint64_t_cmp);
@@ -525,7 +525,7 @@ void *giggle_collect_intersection_data_in_block(
         fprintf(
             stderr,
             "giggle_collect_intersection_data_in_block\t"
-            "i:%u I[i]:%llu\n",
+            "i:%u I[i]:%lu\n",
             i,
             I[i]
         );
@@ -578,9 +578,9 @@ uint32_t giggle_leaf_data_get_intersection_size(
 #if DEBUG
     fprintf(
         stderr,
-        "leaf_start_data->num_leading:%llu\t"
-        "->num_starts:%llu\t"
-        "->num_ends:%llu\n",
+        "leaf_start_data->num_leading:%lu\t"
+        "->num_starts:%lu\t"
+        "->num_ends:%lu\n",
         leaf_start_data->num_leading,
         leaf_start_data->num_starts,
         leaf_start_data->num_ends
@@ -1286,7 +1286,7 @@ void apply_query_filter_to_results(
     diff = len - new_len;
     fprintf(
         stderr,
-        "Removed %llu record%s after applying query filter.\n",
+        "Removed %lu record%s after applying query filter.\n",
         diff,
         (diff > 1) ? "s" : ""
     );
@@ -2559,7 +2559,7 @@ void giggle_bulk_insert_build_leaf_levels(
 #if DEBUG
             fprintf(
                 stderr,
-                "-> %s %u %llu\n",
+                "-> %s %u %lu\n",
                 pri_start.chrm,
                 pri_start.pos,
                 pqd_start->interval_id
@@ -3127,9 +3127,9 @@ void giggle_bulk_insert_write_leaf_node(
         stderr,
         "giggle_bulk_insert_write_leaf_node\t"
         "ORDER:%u "
-        "leading->num:%llu "
-        "starts->num:%llu "
-        "ends->num:%llu "
+        "leading->num:%lu "
+        "starts->num:%lu "
+        "ends->num:%lu "
         "starts_pointers->num:%u "
         "ends_pointers->num:%u\n",
         ORDER,
